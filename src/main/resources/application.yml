@@ -1,0 +1,27 @@
+# -- BASIC CONFIGURATION -- #
+spring:
+  application:
+    name: config-server
+  jmx:
+    default-domain: ${spring.application.name}
+
+  # -- RABBIT MQ SERVER CONFIGURATION -- #
+  # FOR SPRING CLOUD BUS - This configuration is only required to if RABBITMQ server is running on some different server
+  #  If services are running on the same server where RABBITMQ server is running , there is no need to provide such configurations
+  rabbitmq:
+    host: 134.209.21.37
+    username: sumit
+    password: sumit@2019
+    port: 5672
+  # --GITHUB CONFIGURATION -- #
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/sumitdct/configurations.git
+          username: sumit@dctecs.com
+          password: sumit@2018
+  profiles:
+    active: git # activate git profile
+server:
+  port: 1991
